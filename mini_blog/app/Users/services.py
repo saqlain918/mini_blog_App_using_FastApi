@@ -1,5 +1,3 @@
-# app/users/services.py
-
 from sqlalchemy.orm import Session
 from . import schemas, repository
 

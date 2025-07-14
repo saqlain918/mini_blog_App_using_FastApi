@@ -16,7 +16,6 @@ def get_db():
         db.close()
 from uuid import UUID
 
-# Replace this UUID with a real existing user ID from your "users" table
 HARDCODED_USER_ID = UUID("debb833a-0bbf-4535-a5d7-e94d94e90d58")
 
 def get_current_user(db: Session = Depends(get_db)) -> User:
@@ -26,7 +25,7 @@ def get_current_user(db: Session = Depends(get_db)) -> User:
     return user
 
 
-# ✅ Create a new post (authenticated user only)
+
 @router.post("/", response_model=schemas.PostResponse)
 def create_post(
     post: schemas.PostCreate,
@@ -35,7 +34,7 @@ def create_post(
 ):
     return services.create_new_post(post, db, current_user.id)
 
-# ✅ Get all posts for the authenticated user
+
 @router.get("/", response_model=list[schemas.PostResponse])
 def get_all_posts(
     db: Session = Depends(get_db),
@@ -43,7 +42,6 @@ def get_all_posts(
 ):
     return services.get_user_posts(db, current_user.id)
 
-# ✅ Get a single post by ID
 @router.get("/{post_id}", response_model=schemas.PostResponse)
 def get_post_by_id(
     post_id: UUID,

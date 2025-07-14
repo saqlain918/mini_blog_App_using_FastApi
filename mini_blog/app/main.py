@@ -6,12 +6,11 @@ from app.Users.models import User
 from app.database import Base, engine
 
 
-# Create DB tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# Register user router
+
 app.include_router(user_routers.router, prefix="/users", tags=["Users"])
 
 

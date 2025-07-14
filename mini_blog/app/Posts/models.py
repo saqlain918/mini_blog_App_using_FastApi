@@ -14,4 +14,4 @@ class Post(Base):
 
     owner_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
 
-    owner = relationship("User", back_populates="posts")  # Many-to-one
+    owner = relationship("User", back_populates="posts")

@@ -10,5 +10,4 @@ class User(Base):
     username = Column(String, unique=True, nullable=False)
     email = Column(String, unique=True, nullable=False)
 
-    # ✅ FIXED: Now inside the class
     posts = relationship("Post", back_populates="owner")
