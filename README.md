@@ -1,13 +1,6 @@
 # Mini Blog Platform:
 A simple blog platform built using **FastAPI**, **PostgreSQL**, and **SQLAlchemy (Sync)**. This project allows users to register (sign up), simulate login (using a dummy method), create blog posts, and retrieve their own posts.
 
-# Features:
-- User registration (store in DB)
-- Simulated login via hardcoded user (can be upgraded to real auth)
-- Create new blog posts (authenticated user only)
-- Retrieve all posts for the current user
-- Retrieve a specific post by ID (only if owned by the user)
-
 📁 Project Structure
 
 mini_blog/
@@ -68,6 +61,12 @@ mini_blog/
 
 ## Posts App
 
+# Features:
+- User registration (store in DB)
+- Simulated login via hardcoded user (can be upgraded to real auth)
+- Create new blog posts (authenticated user only)
+- Retrieve all posts for the current user
+- Retrieve a specific post by ID (only if owned by the user)
 # How to Test Endpoints:
 
 Visit: http://127.0.0.1:8000/docs
