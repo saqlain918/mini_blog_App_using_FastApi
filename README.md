@@ -47,8 +47,28 @@ mini_blog/
 
 5. Start the server:
    uvicorn main:app --reload
+   
+## Users App
 
-How to Test Endpoints:
+###  POST /users/
+- **Description**: Create a new user and store it in the database.
+- **Response**:
+  Returns the created user details.
+
+###  GET /users/{user_id}
+- **Description**: Retrieve a user's details using their UUID.
+- **Path Parameter**:
+  - `user_id`: UUID of the user.
+- **Response**:
+  Returns user details if found.
+
+###  Approach
+- Users are stored in the PostgreSQL database using SQLAlchemy.
+- User creation and retrieval is implemented in a modular structure: models, schemas, services, repository, and routers.
+
+## Posts App
+
+# How to Test Endpoints:
 
 Visit: http://127.0.0.1:8000/docs
 
@@ -72,22 +92,3 @@ Visit: http://127.0.0.1:8000/docs
 - Posts are linked to the currently "logged in" user.
 - Each route uses `Depends(get_current_user)` to simulate auth.
 - Easily replaceable with real JWT-based auth later.
-
-
-## Users App
-
-###  POST /users/
-- **Description**: Create a new user and store it in the database.
-- **Response**:
-  Returns the created user details.
-
-###  GET /users/{user_id}
-- **Description**: Retrieve a user's details using their UUID.
-- **Path Parameter**:
-  - `user_id`: UUID of the user.
-- **Response**:
-  Returns user details if found.
-
-### 🧠 Approach
-- Users are stored in the PostgreSQL database using SQLAlchemy.
-- User creation and retrieval is implemented in a modular structure: models, schemas, services, repository, and routers.
