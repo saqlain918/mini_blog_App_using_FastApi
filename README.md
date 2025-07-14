@@ -1,7 +1,7 @@
 # Mini Blog Platform:
 A simple blog platform built using **FastAPI**, **PostgreSQL**, and **SQLAlchemy (Sync)**. This project allows users to register (sign up), simulate login (using a dummy method), create blog posts, and retrieve their own posts.
 
-📁 Project Structure
+# Project Structure
 
 mini_blog/
 ├── app/
@@ -55,7 +55,7 @@ mini_blog/
 - **Response**:
   Returns user details if found.
 
-###  Approach
+# Implementation Approach:
 - Users are stored in the PostgreSQL database using SQLAlchemy.
 - User creation and retrieval is implemented in a modular structure: models, schemas, services, repository, and routers.
 
