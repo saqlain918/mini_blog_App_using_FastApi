@@ -9,7 +9,6 @@ A simple blog platform built using **FastAPI**, **PostgreSQL**, and **SQLAlchemy
 - Retrieve a specific post by ID (only if owned by the user)
 
 📁 Project Structure
---------------------
 
 mini_blog/
 ├── app/
@@ -29,10 +28,9 @@ mini_blog/
 │   ├── config.py
 ├── main.py
 ├── requirements.txt
-└── README.txt
+└── .env
 
-🛠️ How to Run the Project
---------------------------
+# How to Run the Project:
 
 1. Clone the Repo:
    git clone <your_repo_url>
@@ -45,13 +43,12 @@ mini_blog/
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
 
-4. Configure `.env` file (use `.env.example` as a reference).
+4. Configure `.env` file.
 
 5. Start the server:
    uvicorn main:app --reload
 
-🧪 How to Test Endpoints (via Swagger UI)
-----------------------------------------
+How to Test Endpoints:
 
 Visit: http://127.0.0.1:8000/docs
 
@@ -69,10 +66,28 @@ Visit: http://127.0.0.1:8000/docs
 - **GET /posts/** - Retrieve all posts by current user
 - **GET /posts/{post_id}** - Retrieve a single post (only if owned)
 
-🧠 Implementation Approach
----------------------------
+# Implementation Approach:
 
 - `get_current_user` checks the user in DB using a hardcoded UUID.
 - Posts are linked to the currently "logged in" user.
 - Each route uses `Depends(get_current_user)` to simulate auth.
 - Easily replaceable with real JWT-based auth later.
+
+
+## Users App
+
+###  POST /users/
+- **Description**: Create a new user and store it in the database.
+- **Response**:
+  Returns the created user details.
+
+###  GET /users/{user_id}
+- **Description**: Retrieve a user's details using their UUID.
+- **Path Parameter**:
+  - `user_id`: UUID of the user.
+- **Response**:
+  Returns user details if found.
+
+### 🧠 Approach
+- Users are stored in the PostgreSQL database using SQLAlchemy.
+- User creation and retrieval is implemented in a modular structure: models, schemas, services, repository, and routers.
